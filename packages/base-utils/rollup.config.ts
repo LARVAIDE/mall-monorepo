@@ -27,14 +27,7 @@ export default {
     commonjs(),
     typescript(),
     terser(),
-    copy({
-      targets: [
-        {
-          src: 'src/recorder/AudioRecorder/recorder.worklet.js',
-          dest: 'dist',
-        },
-      ],
-    }),
+    copy(),
   ],
   onwarn: function (warning) {
     // Skip certain warnings

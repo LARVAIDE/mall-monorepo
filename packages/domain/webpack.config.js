@@ -13,7 +13,7 @@ module.exports = {
     libraryTarget: 'commonjs',
     globalObject: 'this',
     filename: 'domain.js',
-    library: 'mallDomain',
+    library: '@mall-domain',
     path: path.resolve(__dirname, './dist'),
   },
 };
