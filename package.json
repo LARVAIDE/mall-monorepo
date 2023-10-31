@@ -12,10 +12,10 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "dev": "pnpm --filter '@mall-web/*' start",
-    "build": "pnpm --filter '@mall-web/*' build",
-    "dev:shared": "pnpm --filter '@mall-base/*' start",
-    "build:shared": "pnpm --filter '@mall-base/*' build",
+    "dev": "cross-env NODE_ENV=development pnpm --filter '@mall-web/*' start",
+    "build": "cross-env NODE_ENV=production pnpm --filter '@mall-web/*' build",
+    "dev:shared": "cross-env NODE_ENV=development pnpm --filter '@mall-base/*' start",
+    "build:shared": "cross-env NODE_ENV=production pnpm --filter '@mall-base/*' build",
     "clean": "pnpm --filter '@mall-*...' clean",
     "prepare": "husky install",
     "version:rules": "pnpm changeset pre exit & pnpm changeset add",
@@ -54,9 +54,14 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "faker": "^4.1.0",
+    "html-webpack-plugin": "^5.5.3",
     "husky": "^8.0.0",
     "lint-staged": "^15.0.2",
     "rimraf": "^5.0.5",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
