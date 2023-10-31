@@ -1,6 +1,7 @@
 # Mall Monorepo
 
 > node: >= 18
+> 
 > pnpm: >= 8
 
 ## 本地开发
