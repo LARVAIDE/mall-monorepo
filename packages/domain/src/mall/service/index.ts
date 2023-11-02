@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
-import { createCommoditySlice } from '@/mall/service/commodities';
+import { createCommoditySlice } from './commodities';
 import { CommoditySlice } from '@/mall/types';
-import composeMiddleware from '@/middleware';
+import { composeMiddleware } from '@/middleware';
 
 export const mallDomain = create<CommoditySlice>()(
   composeMiddleware(
@@ -13,5 +13,4 @@ export const mallDomain = create<CommoditySlice>()(
   ),
 );
 
-/** with react hooks */
 export const useMallDomain = mallDomain;

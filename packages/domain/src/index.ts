@@ -1,1 +1,1 @@
-export * from './mall';
+export * from '@/mall';

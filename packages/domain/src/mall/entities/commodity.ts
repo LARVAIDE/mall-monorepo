@@ -1,14 +1,14 @@
-import { CommodityHandler, Currency, ICommodityDTO } from '@/mall/types';
+import { CommodityHandler, CommodityCurrency, ICommodityDTO } from '@/mall/types';
 
 export class Commodity implements ICommodityDTO {
   id: string;
   name: string;
   description: string;
-  currency: Currency;
+  currency: CommodityCurrency;
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date;
-  deleted: boolean;
+  available: boolean;
 
   constructor({
     id,
@@ -18,7 +18,7 @@ export class Commodity implements ICommodityDTO {
     createdAt,
     updatedAt,
     deletedAt,
-    deleted,
+    available: available,
   }: Omit<ICommodityDTO, CommodityHandler>) {
     this.id = id;
     this.name = name;
@@ -27,12 +27,8 @@ export class Commodity implements ICommodityDTO {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.deletedAt = deletedAt;
-    this.deleted = deleted;
+    this.available = available;
   }
 
-  create() {}
-
-  update() {}
-
-  delete() {}
+  displayPrice() {}
 }

@@ -1,8 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ModuleFederationPlugin } = require('webpack').container;
+const webpack = require('webpack');
+const { ModuleFederationPlugin } = webpack.container;
 const path = require('path');
+const { merge } = require('webpack-merge');
+const commonConfig = require('../../config/webpack.common');
 
-module.exports = {
+module.exports = merge(commonConfig, {
   mode: 'development',
   devServer: {
     port: 8082,
@@ -11,6 +14,12 @@ module.exports = {
     libraryTarget: 'commonjs',
     filename: 'cart_[hash8].js',
     path: path.resolve(__dirname, './dist'),
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '@/': path.resolve(__dirname, 'src/'),
+    },
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -29,4 +38,4 @@ module.exports = {
       template: './public/index.html',
     }),
   ],
-};
+});

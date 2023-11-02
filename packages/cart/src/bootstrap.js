@@ -1,4 +1,4 @@
-import faker from 'faker';
+import { faker } from '@faker-js/faker';
 
 function mount(el) {
   el.innerHTML = `在您的购物车中有${faker.random.number()}件商品`;

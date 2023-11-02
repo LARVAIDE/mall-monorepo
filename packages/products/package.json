@@ -1,10 +1,11 @@
 {
-  "name": "@mall-web/products",
+  "name": "@mall/application-products",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack serve",
+    "start": "cross-env NODE_ENV=development webpack serve",
+    "build": "cross-env NODE_ENV=production webpack",
     "clean": "npx rimraf dist & npx rimraf node_modules"
   },
   "keywords": [],
@@ -12,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {
-    "@mall-base/utils": "workspace:*"
+    "@mall/base": "workspace:*",
+    "@mall/domain": "workspace:*"
   }
 }

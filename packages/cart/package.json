@@ -1,10 +1,11 @@
 {
-  "name": "@mall-web/cart",
+  "name": "@mall/application-cart",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack serve",
+    "start": "cross-env NODE_ENV=development webpack serve",
+    "build": "cross-env NODE_ENV=production webpack",
     "clean": "npx rimraf dist & npx rimraf node_modules"
   },
   "keywords": [],

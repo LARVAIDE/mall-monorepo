@@ -1,2 +1,2 @@
-export * from './service';
-export * from './types';
+export * from '@/mall/service';
+export * from '@/mall/types';

@@ -1,8 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 const path = require('path');
+const { merge } = require('webpack-merge');
+const commonConfig = require('../../config/webpack.common');
 
-module.exports = {
+module.exports = merge(commonConfig, {
   mode: 'development',
   devServer: {
     port: 8080,
@@ -11,6 +13,12 @@ module.exports = {
     libraryTarget: 'commonjs',
     filename: 'container_[hash8].js',
     path: path.resolve(__dirname, './dist'),
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -24,4 +32,4 @@ module.exports = {
       template: './public/index.html',
     }),
   ],
-};
+});

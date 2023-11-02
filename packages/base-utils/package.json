@@ -1,5 +1,5 @@
 {
-  "name": "@mall-base/utils",
+  "name": "@mall/base",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -10,8 +10,9 @@
   ],
   "scripts": {
     "start": "rollup -w -c --bundleConfigAsCjs",
-    "build": "npx rimraf dist && rollup -c --bundleConfigAsCjs",
-    "clean": "npx rimraf dist & npx rimraf node_modules"
+    "build": "rollup -c --bundleConfigAsCjs",
+    "clean": "npx rimraf dist & npx rimraf node_modules",
+    "link": "pnpm build & pnpm link --global"
   },
   "keywords": [],
   "author": "",
@@ -21,15 +22,14 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-typescript": "^7.23.2",
     "@rollup/plugin-alias": "^5.0.1",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
-    "rimraf": "^5.0.5",
     "rollup": "^4.1.4",
-    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-copy": "^3.5.0",
-    "rollup-plugin-terser": "^7.0.2",
     "typescript": "^5.2.2"
   }
 }

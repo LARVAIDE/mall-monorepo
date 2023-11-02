@@ -1,11 +1,11 @@
 {
-  "name": "@mall-domain",
+  "name": "@mall/domain",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
-    "build": "webpack --mode production"
+    "start": "cross-env NODE_ENV=development webpack serve",
+    "build": "cross-env NODE_ENV=production webpack --stats-error-details"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,6 @@
     "zustand": "^4.4.4"
   },
   "dependencies": {
-    "@mall-base/utils": "workspace:*"
+    "@mall/base": "workspace:*"
   }
 }

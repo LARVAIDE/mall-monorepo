@@ -4,9 +4,9 @@ import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import * as path from 'path';
-import babel from 'rollup-plugin-babel';
 import copy from 'rollup-plugin-copy';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
+import { babel } from '@rollup/plugin-babel';
 
 export default {
   input: './src/index.ts',

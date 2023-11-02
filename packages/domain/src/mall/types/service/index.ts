@@ -1,1 +1,1 @@
-export * from './commodities';
+export * from './commodities.d';
