@@ -1,9 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const { ModuleFederationPlugin } = webpack.container;
 const path = require('path');
+const { ModuleFederationPlugin } = require('webpack').container;
 const { merge } = require('webpack-merge');
 const commonConfig = require('../../config/webpack.common');
+const commonSharedConfig = require('../../config/shared');
 
 module.exports = merge(commonConfig, {
   mode: process.env.NODE_ENV,
@@ -13,7 +13,7 @@ module.exports = merge(commonConfig, {
   },
   output: {
     libraryTarget: 'commonjs',
-    filename: 'products_[hash8].js',
+    filename: 'products.js',
     path: path.resolve(__dirname, './dist'),
   },
   resolve: {
@@ -30,9 +30,7 @@ module.exports = merge(commonConfig, {
         './Index': './src/bootstrap.js',
       },
       shared: {
-        faker: {
-          singleton: true,
-        },
+        ...commonSharedConfig,
       },
     }),
     new HtmlWebpackPlugin({

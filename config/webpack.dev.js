@@ -3,18 +3,12 @@ const path = require('path');
 const commonConfig = require('../../config/webpack.common');
 
 module.exports = merge(commonConfig, {
-  mode: process.env.NODE_ENV,
+  devtool: 'source-map',
   devServer: {
     port: 9000,
+    hot: true,
   },
   entry: './src/index.ts',
-  output: {
-    libraryTarget: 'commonjs',
-    globalObject: 'this',
-    filename: 'domain_[hash8].js',
-    library: '@mall/domain',
-    path: path.resolve(__dirname, './dist'),
-  },
   resolve: {
     alias: {
       '@/': path.resolve(__dirname, './src/'),

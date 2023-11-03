@@ -1,4 +1,13 @@
+/**
+ * 图片转base64
+ */
+const LimitBase64ToImgTransfSize = 8192;
+
 module.exports = {
+  mode: process.env.NODE_ENV,
+  output: {
+    devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource-path]?[loaders]',
+  },
   module: {
     rules: [
       {
@@ -9,7 +18,7 @@ module.exports = {
         },
         parser: {
           dataUrlCondition: {
-            maxSize: 8 * 1024,
+            maxSize: LimitBase64ToImgTransfSize,
           },
         },
       },
@@ -21,17 +30,12 @@ module.exports = {
         },
       },
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.jsx?$/,
+        test: /\.[jt]sx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'esbuild-loader',
           options: {
-            cacheDirectory: true,
+            target: 'es2015',
           },
         },
       },

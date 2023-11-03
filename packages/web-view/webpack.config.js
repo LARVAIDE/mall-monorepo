@@ -11,18 +11,17 @@ module.exports = merge(commonConfig, {
   },
   output: {
     libraryTarget: 'commonjs',
-    filename: 'container_[hash8].js',
+    filename: 'container.js',
     path: path.resolve(__dirname, './dist'),
   },
   resolve: {
-    extensions: ['.ts', '.js'],
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'container',
+      name: '@mall/web-container',
       remotes: {
         products: 'products@http://localhost:8081/remoteEntry.js',
         cart: 'cart@http://localhost:8082/remoteEntry.js',

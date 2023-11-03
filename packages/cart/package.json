@@ -1,8 +1,9 @@
 {
   "name": "@mall/application-cart",
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/cart.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve",
     "build": "cross-env NODE_ENV=production webpack",
@@ -11,5 +12,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {}
+  "dependencies": {
+    "@mall/base": "workspace:*",
+    "@mall/domain": "workspace:*"
+  }
 }

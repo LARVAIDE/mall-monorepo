@@ -4,6 +4,7 @@ const { ModuleFederationPlugin } = webpack.container;
 const path = require('path');
 const { merge } = require('webpack-merge');
 const commonConfig = require('../../config/webpack.common');
+const commonSharedConfig = require('../../config/shared');
 
 module.exports = merge(commonConfig, {
   mode: 'development',
@@ -12,7 +13,7 @@ module.exports = merge(commonConfig, {
   },
   output: {
     libraryTarget: 'commonjs',
-    filename: 'cart_[hash8].js',
+    filename: 'cart.js',
     path: path.resolve(__dirname, './dist'),
   },
   resolve: {
@@ -29,9 +30,7 @@ module.exports = merge(commonConfig, {
         './Index': './src/bootstrap',
       },
       shared: {
-        faker: {
-          singleton: true,
-        },
+        ...commonSharedConfig,
       },
     }),
     new HtmlWebpackPlugin({

@@ -1,7 +1,7 @@
 import { StateCreator, StoreMutatorIdentifier } from 'zustand';
 import { devtools, subscribeWithSelector } from 'zustand/middleware';
 
-import { isProductionEnv } from '@mall/base';
+import { isProdEnv } from './utils';
 
 export type ComposeMiddleware = <
   T,
@@ -14,4 +14,4 @@ export type ComposeMiddleware = <
 ) => StateCreator<T, Mps, [['zustand/devtools', T], ['zustand/subscribeWithSelector', T], ...Mcs]>;
 
 export const composeMiddleware = ((f, storeName) =>
-  devtools(subscribeWithSelector(f), { name: storeName, enabled: !isProductionEnv })) as ComposeMiddleware;
+  devtools(subscribeWithSelector(f), { name: storeName, enabled: !isProdEnv })) as ComposeMiddleware;

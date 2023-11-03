@@ -19,19 +19,15 @@ module.exports = {
       'error',
       {
         groups: [
-          ['^react', '^@?\\w'],
-          // Packages
-          ['^@?\\w', '^node:'],
-          // Custom
-          ['^@mall-base\\/(.+)', '^@mall-web\\/(.+)'],
-          // Relative & Styles
-          ['^@\\/', '^\\.', 'less$', 'css$'],
+          ['^react', '^@?\\w', '^node:'],
+          ['^@mall/application-*', '^@mall/base', '^@mall/domain'],
+          ['^@\\/', '^\\.', 'less$', 'css$', 'scss$'],
         ],
       },
     ],
     'simple-import-sort/exports': 'error',
     'unused-imports/no-unused-imports': 'error',
-    // 'no-magic-numbers': 1,
+    'no-magic-numbers': 'error',
     'no-sparse-arrays': 'off',
     'react/jsx-uses-react': 'off',
     camelcase: 'off',
