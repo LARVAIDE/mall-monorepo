@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "start": "rollup -w -c --bundleConfigAsCjs",
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "npx rimraf dist && rollup -c --bundleConfigAsCjs",
     "clean": "npx rimraf dist & npx rimraf node_modules"
   },
   "keywords": [],
