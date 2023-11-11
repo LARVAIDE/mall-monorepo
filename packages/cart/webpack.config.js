@@ -12,7 +12,6 @@ module.exports = merge(commonConfig, {
     port: 8082,
   },
   output: {
-    libraryTarget: 'commonjs',
     filename: 'cart.js',
     path: path.resolve(__dirname, './dist'),
   },
