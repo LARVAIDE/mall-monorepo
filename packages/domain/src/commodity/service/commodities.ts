@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { StateCreator } from 'zustand/vanilla';
 
 import { Commodity } from '@/commodity/entity';
-import { CommoditySlice } from './commodities.d';
+import type { CommoditySlice } from './commodities.d';
 
 const { commerce, finance, date } = faker;
 const initValue = {

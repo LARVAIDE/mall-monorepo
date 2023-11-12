@@ -1,6 +1,6 @@
+import type { CurrencyType } from '@/commodity/entity';
 import { Commodity } from '@/commodity/entity';
-import { CurrencyType } from '@/commodity/types';
-import { IOrder } from '@/order/entity';
+import type { IOrder } from '@/order/entity';
 
 export interface IOrderSlice {
   /** 订单生成状态 */

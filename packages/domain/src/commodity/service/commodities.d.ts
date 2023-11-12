@@ -1,4 +1,5 @@
-import { Commodity,CurrencyType } from '@/commodity/entity';
+import { Commodity } from '@/commodity/entity';
+import type { CurrencyType } from '@/commodity/entity/commodity.d';
 
 export interface CommoditySlice {
   /** 所有商品 */

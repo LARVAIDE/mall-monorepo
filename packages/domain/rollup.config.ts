@@ -5,8 +5,8 @@ import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import * as path from 'path';
 import copy from 'rollup-plugin-copy';
+import * as path from 'node:path';
 
 export default {
   input: './src/index.ts',
@@ -25,9 +25,7 @@ export default {
     }),
     babel(),
     commonjs(),
-    typescript({
-      declarationDir: 'dist',
-    }),
+    typescript(),
     terser(),
     copy(),
   ],

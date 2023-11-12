@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 
 import { composeMiddleware } from '../../middleware';
-import { CommoditySlice, createCommoditySlice } from './commodities';
+import { createCommoditySlice } from './commodities';
+import type { CommoditySlice } from './commodities.d';
 
 export const commodityDomain = create<CommoditySlice>()(
   composeMiddleware(

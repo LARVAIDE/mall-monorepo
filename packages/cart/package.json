@@ -13,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@mall/base": "workspace:*",
-    "@mall/domain": "workspace:*"
+    "@mall/base": "workspace:*"
   }
 }

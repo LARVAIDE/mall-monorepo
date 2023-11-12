@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Modal } from 'antd';
 
-const WelcomeDialog = () => {
+const SettingsDialog = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -19,15 +19,15 @@ const WelcomeDialog = () => {
   return (
     <>
       <Button type="primary" onClick={showModal}>
-        welcome
+        settings
       </Button>
       <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>welcome...</p>
-        <p>welcome...</p>
-        <p>welcome...</p>
+        <p>settings...</p>
+        <p>settings...</p>
+        <p>settings...</p>
       </Modal>
     </>
   );
 };
 
-export default WelcomeDialog;
+export default SettingsDialog;

@@ -1,7 +1,7 @@
 import { Commodity } from '@/commodity/entity';
-import { IOrderDTO, OrderStatus } from './order.d';
+import type { IOrder, OrderStatus } from './order.d';
 
-export class Order implements IOrderDTO {
+export class Order implements IOrder {
   id: string;
   address: string;
   commodityList: Commodity[];
@@ -24,7 +24,7 @@ export class Order implements IOrderDTO {
     updatedAt,
     canceledAt,
     deletedAt,
-  }: Omit<IOrderDTO, 'updateOrderStatus' | 'displayTotalPrice' | 'updateAddress'>) {
+  }: Omit<IOrder, 'updateOrderStatus' | 'displayTotalPrice' | 'updateAddress'>) {
     this.id = id;
     this.address = address;
     this.commodityList = commodityList;

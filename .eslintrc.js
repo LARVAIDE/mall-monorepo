@@ -29,7 +29,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'simple-import-sort/exports': 'error',
     'unused-imports/no-unused-imports': 'error',
-    'no-magic-numbers': 'error',
+    'no-magic-numbers': 'warn',
     'no-sparse-arrays': 'off',
     camelcase: 'off',
     'react/display-name': 'off',
@@ -40,5 +40,6 @@ module.exports = {
     'no-empty-pattern': 'off',
     'no-case-declarations': 'off',
     'array-callback-return': 'off',
+    'no-use-before-define': 'off',
   },
 };

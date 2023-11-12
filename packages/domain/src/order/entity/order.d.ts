@@ -1,4 +1,4 @@
-import { OrderCommodityItem } from './OrderCommodityItemEntity';
+import type { Commodity } from '@/commodity/entity';
 
 /**
  * 订单状态
@@ -20,13 +20,13 @@ export enum OrderStatus {
   Canceled = 'Canceled',
 }
 
-export interface IOrderDTO {
+export interface IOrder {
   /** 订单 ID */
   id: string;
   /** 收货地址 */
   address: string;
   /** 商品列表 */
-  commodityList: OrderCommodityItem[];
+  commodityList: Commodity[];
   /** 订单总价 */
   totalPrice: number;
   /** 订单状态 */
@@ -41,10 +41,4 @@ export interface IOrderDTO {
   canceledAt: Date;
   /** 删除 */
   deletedAt: Date;
-  /** 更新订单状态 */
-  updateOrderStatus(id: string, status: OrderStatus): void;
-  /** 修改收货地址 */
-  updateAddress(address: string): void;
-  /** 展示订单总价 */
-  displayTotalPrice(currencySymbol: string): string;
 }
