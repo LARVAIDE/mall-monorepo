@@ -5,6 +5,7 @@ const LimitBase64ToImgTransfSize = 8192;
 
 module.exports = {
   mode: process.env.NODE_ENV,
+  devtool: 'source-map',
   output: {
     devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource-path]?[loaders]',
   },

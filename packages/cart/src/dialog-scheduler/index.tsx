@@ -1,1 +1,1 @@
-export { default } from './internal/scheduler';
+export { DialogContext, DialogsProvider } from './src/provider';

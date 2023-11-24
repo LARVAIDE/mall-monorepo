@@ -1,3 +1,5 @@
+const EmptyStackNum = 0;
+
 class Stack<T> {
   private items: Map<number, T>;
   private instance: Stack<T> | undefined;
@@ -35,8 +37,17 @@ class Stack<T> {
     return this.items.get(lastIndex);
   }
 
+  contains(callbackFn: Function): boolean {
+    for (const iterator of this.items.values()) {
+      if (callbackFn(iterator)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   isEmpty(): boolean {
-    return this.size() === 0;
+    return this.size() === EmptyStackNum;
   }
 
   size(): number {
@@ -45,6 +56,10 @@ class Stack<T> {
 
   clear(): void {
     this.items.clear();
+  }
+
+  toArray(): T[] {
+    return Array.from(this.items.values());
   }
 }
 

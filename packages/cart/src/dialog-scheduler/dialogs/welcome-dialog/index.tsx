@@ -1,12 +1,15 @@
-import { useState } from 'react';
-import { Button, Modal } from 'antd';
+import { useContext, useEffect, useState } from 'react';
+import { Modal } from 'antd';
+
+import { DialogContext } from '../../index';
+
+/**
+ * 全局提示类 dialog
+ */
 
 const WelcomeDialog = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
+  const { unmount } = useContext(DialogContext);
 
   const handleOk = () => {
     setIsModalOpen(false);
@@ -16,17 +19,23 @@ const WelcomeDialog = () => {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    setIsModalOpen(true);
+  }, []);
+
   return (
-    <>
-      <Button type="primary" onClick={showModal}>
-        welcome
-      </Button>
-      <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>welcome...</p>
-        <p>welcome...</p>
-        <p>welcome...</p>
-      </Modal>
-    </>
+    <Modal
+      title="welcome Modal"
+      open={isModalOpen}
+      destroyOnClose={false}
+      onOk={handleOk}
+      onCancel={handleCancel}
+      afterClose={unmount}
+    >
+      <p>welcome...</p>
+      <p>welcome...</p>
+      <p>welcome...</p>
+    </Modal>
   );
 };
 

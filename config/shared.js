@@ -1,5 +1,10 @@
-// const deps = require('../package.json').dependencies;
+const deps = require('../package.json').dependencies;
 
-// module.export = {
-
-// }
+module.export = {
+  react: {
+    version: deps.react,
+  },
+  'react-dom': {
+    version: deps['react-dom'],
+  },
+};
