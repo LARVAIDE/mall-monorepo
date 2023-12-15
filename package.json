@@ -18,8 +18,8 @@
     "build:shared": "cross-env NODE_ENV=production pnpm --filter '@mall/base' --filter '@mall/domain' build",
     "clean": "pnpm --filter '@mall/*...' run clean",
     "prepare": "husky install",
-    "version:rules": "pnpm changeset pre exit & pnpm changeset add",
-    "version:update": "pnpm changeset pre exit & pnpm changeset version",
+    "version:rules": "pnpm changeset add",
+    "version:update": "pnpm changeset version",
     "version:beta": "pnpm changeset pre exit & pnpm changeset pre enter beta",
     "version:alpha": "pnpm changeset pre exit & pnpm changeset pre enter alpha",
     "version:rc": "pnpm changeset pre exit & pnpm changeset pre enter rc"
@@ -37,7 +37,7 @@
     "*.{md,json}": "prettier --write"
   },
   "engines": {
-    "node": ">=16",
+    "node": ">=16.14.0",
     "pnpm": ">=8"
   },
   "devDependencies": {
@@ -69,9 +69,11 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "fs-extra": "^11.2.0",
     "html-webpack-plugin": "^5.5.3",
     "husky": "^8.0.0",
     "lint-staged": "^15.0.2",
+    "path-browserify": "^1.0.1",
     "rimraf": "^5.0.5",
     "rollup": "^4.1.4",
     "rollup-plugin-copy": "^3.5.0",

@@ -1,24 +1,27 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Button } from 'antd';
 
-import { DialogContext } from './dialog-scheduler';
-import { SettingsDialog, WelcomeDialog } from './dialog-scheduler/internal/register';
+import GlobalDialog from './dialog-scheduler/dialogs/Alive/global-dialog';
+import SettingDialog from './dialog-scheduler/dialogs/Alive/setting-dialog';
+import useAliveModal from './dialog-scheduler/src/useAliveModal';
 
 const Page = () => {
-  const { mount } = useContext(DialogContext);
+  const { register, handlerOpen } = useAliveModal('SettingDialog');
 
-  const openClick = () => {
-    mount(<SettingsDialog key="settings" />);
+  const handlerOpenSetting = () => {
+    handlerOpen();
   };
 
   useEffect(() => {
-    mount(<WelcomeDialog key="welcome" />);
+    // TODO: 这部分可以自动化
+    register(<GlobalDialog key="GlobalDialog" />);
+    register(<SettingDialog key="SettingDialog" />);
   }, []);
 
   return (
     <>
-      <Button type="primary" onClick={openClick}>
-        打开
+      <Button type="primary" onClick={handlerOpenSetting}>
+        打开setting
       </Button>
     </>
   );

@@ -1,45 +1,53 @@
+import type { ReactElement } from 'react';
 import { createContext, useState } from 'react';
 
-import dialogScheduler from '../internal/scheduler';
-import type { DialogComponent } from '../internal/scheduler.d';
+import dialogScheduler, { DialogPayload } from '../internal/scheduler';
 
 const initDialogContext = {
-  mount: (d: DialogComponent) => {},
+  dialogScheduler,
+  mount: (d: ReactElement, k: DialogPayload) => {},
   unmount: () => {},
   destroyAll: () => {},
+  forceUpdate: () => {},
 };
 
 export const DialogContext = createContext(initDialogContext);
 
 export const DialogsProvider = ({ children }) => {
-  const [dialogList, setDialogList] = useState(dialogScheduler.renderList());
+  const [, setForceUpdate] = useState(0);
 
-  const mount = (dialog: DialogComponent) => {
-    dialogScheduler.mount(dialog);
-    setDialogList(dialogScheduler.renderList());
+  const mount = (dialog: ReactElement, payload: any = {}) => {
+    const { props, visible, keepAlive } = payload;
+    dialogScheduler.add(dialog, { props, visible, keepAlive });
+    forceUpdate();
   };
 
   const unmount = () => {
-    const popDialog = dialogScheduler.unmount();
-    setDialogList(dialogScheduler.renderList());
-    return popDialog;
+    dialogScheduler.remove();
+    forceUpdate();
   };
 
   const destroyAll = () => {
     dialogScheduler.destroyAll();
-    setDialogList(dialogScheduler.renderList());
+    forceUpdate();
+  };
+
+  const forceUpdate = () => {
+    setForceUpdate(Date.now());
   };
 
   return (
     <DialogContext.Provider
       value={{
+        dialogScheduler,
         mount,
         unmount,
         destroyAll,
+        forceUpdate,
       }}
     >
       {children}
-      {...dialogList}
+      {...dialogScheduler.renderList()}
     </DialogContext.Provider>
   );
 };

@@ -1,3 +1,5 @@
+const path = require('path');
+
 /**
  * 图片转base64
  */
@@ -6,8 +8,16 @@ const LimitBase64ToImgTransfSize = 8192;
 module.exports = {
   mode: process.env.NODE_ENV,
   devtool: 'source-map',
-  output: {
-    devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource-path]?[loaders]',
+  resolve: {
+    alias: {
+      '@/': path.resolve(__dirname, 'src/'),
+      '@/mall': path.resolve(__dirname, 'src/mall/'),
+    },
+    modules: [path.join(__dirname, 'src'), 'node_modules'],
+    extensions: ['.ts', '.js'],
+    fallback: {
+      path: require.resolve('path-browserify'),
+    },
   },
   module: {
     rules: [
