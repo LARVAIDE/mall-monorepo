@@ -1,2 +1,2 @@
 export * from './order';
-export * from './order.d';
+export * from './types';

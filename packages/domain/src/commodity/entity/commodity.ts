@@ -1,4 +1,4 @@
-import type { CommodityCurrency, ICommodityDTO, IPurchaseProperties } from './commodity.d';
+import type { CommodityCurrency, ICommodityDTO, IPurchaseProperties } from './types';
 
 const MaxPercent = 100;
 

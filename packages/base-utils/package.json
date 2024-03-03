@@ -18,7 +18,5 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {},
-  "dependencies": {
-    "mitt": "^3.0.1"
-  }
+  "dependencies": {}
 }

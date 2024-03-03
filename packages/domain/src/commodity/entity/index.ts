@@ -1,2 +1,2 @@
 export * from './commodity';
-export * from './commodity.d';
+export * from './types';

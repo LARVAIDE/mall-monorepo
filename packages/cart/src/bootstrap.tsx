@@ -1,6 +1,5 @@
 import { createRoot } from 'react-dom/client';
 
-import { DialogsProvider } from './dialog-scheduler';
 import Page from './page';
 
 const MountCart = (el: Element) => {
@@ -11,11 +10,7 @@ const MountCart = (el: Element) => {
 const root = createRoot(document.getElementById('cart-root') as Element);
 
 const App = () => {
-  return (
-    <DialogsProvider>
-      <Page />
-    </DialogsProvider>
-  );
+  return <Page />;
 };
 root.render(<App />);
 

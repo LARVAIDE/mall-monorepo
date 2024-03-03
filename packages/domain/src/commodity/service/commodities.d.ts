@@ -1,5 +1,5 @@
 import { Commodity } from '@/commodity/entity';
-import type { CurrencyType } from '@/commodity/entity/commodity.d';
+import type { CurrencyType } from '@/commodity/entity/types';
 
 export interface CommoditySlice {
   /** 所有商品 */
@@ -7,5 +7,5 @@ export interface CommoditySlice {
   /** 等待获取商品信息 */
   waitingCommodities: boolean;
   /** 获取商品信息 */
-  getCommodities(currency: CurrencyType): Promise<any>;
+  getCommodities(currency: CurrencyType): Commodity[];
 }

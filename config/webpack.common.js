@@ -2,6 +2,7 @@ const path = require('path');
 
 /**
  * 图片转base64
+ * 1024 * 8
  */
 const LimitBase64ToImgTransfSize = 8192;
 
@@ -14,7 +15,7 @@ module.exports = {
       '@/mall': path.resolve(__dirname, 'src/mall/'),
     },
     modules: [path.join(__dirname, 'src'), 'node_modules'],
-    extensions: ['.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js'],
     fallback: {
       path: require.resolve('path-browserify'),
     },
@@ -46,6 +47,7 @@ module.exports = {
         use: {
           loader: 'esbuild-loader',
           options: {
+            loader: 'jsx',
             target: 'es2015',
           },
         },

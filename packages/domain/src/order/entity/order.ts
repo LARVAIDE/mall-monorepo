@@ -1,5 +1,5 @@
 import { Commodity } from '@/commodity/entity';
-import type { IOrder, OrderStatus } from './order.d';
+import type { IOrder, OrderStatus } from './types';
 
 export class Order implements IOrder {
   id: string;
